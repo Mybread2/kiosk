@@ -8,11 +8,11 @@ public class CommandForSelectMenu {
 
     Menu menu;
 
-    public CommandForSelectMenu(Menu menu){
+    public CommandForSelectMenu(Menu menu) {
         this.menu = menu;
     }
 
-    public void commandForSelectMenu(){
+    public void commandForSelectMenu() {
         while (true) {
             int inputForSelectTypeOfFood = scanner.nextInt();
             scanner.nextLine();
@@ -32,6 +32,8 @@ public class CommandForSelectMenu {
                 default:
                     throw new IllegalArgumentException("올바른 번호를 입력해주세요.");
             }
+
+
             break;
         }
     }

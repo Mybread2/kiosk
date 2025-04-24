@@ -6,14 +6,13 @@ public class Main {
         Menu menu = new Menu();
         CommandForSelectBurgers commandForSelectBurgers = new CommandForSelectBurgers(menuItem);
         CommandForSelectMenu commandForSelectMenu = new CommandForSelectMenu(menu);
-        AddBurgersToCart addBurgersToCart = new AddBurgersToCart(commandForSelectBurgers, menuItem);
         SelectMenu selectMenu = new SelectMenu(menu, commandForSelectMenu);
-        SelectBurger selectBurger = new SelectBurger(menuItem, commandForSelectBurgers, addBurgersToCart);
+        SelectBurger selectBurger = new SelectBurger(menuItem, commandForSelectBurgers);
 
 
         Kiosk kiosk = new Kiosk(menuItem, menu, selectMenu, selectBurger);
 
-        mainLoop :
+        mainLoop:
         while (true) {
             kiosk.runKiosk();
         }
