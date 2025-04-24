@@ -13,14 +13,17 @@ public class SelectBurger {
     public void selectBurger() {
         System.out.println("[ BURGERS MENU ]");
         for (Burger burger : menuItem.getTypeOfBurgers()) {
-            System.out.println(burger.getMenuName() + " | " + burger.getMenuPrice() + "원 | " + burger.getMenuDescription());
+                System.out.println(burger.getBurgerId() + ". " + burger.getMenuName() + " | " + burger.getMenuPrice() + "원 | " + burger.getMenuDescription());
         }
         System.out.println("0. 뒤로가기");
         System.out.println();
 
         while (true) {
             try {
-                commandForSelectBurgers.commandForSelectBurgers();
+                boolean result = commandForSelectBurgers.commandForSelectBurgers();
+                if (!result) {
+                    return;
+                }
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
                 continue;

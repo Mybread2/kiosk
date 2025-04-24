@@ -13,23 +13,24 @@ public class CommandForSelectBurgers {
         this.menuItem = menuItem;
     }
 
-    public void commandForSelectBurgers() {
-        while (true) {
-            int inputForSelectBurgers = scanner.nextInt();
-            scanner.nextLine();
+    public boolean commandForSelectBurgers() {
 
-            while (true) {
-                if (inputForSelectBurgers > 0 && inputForSelectBurgers <= menuItem.getTypeOfBurgers().size()) {
-                    System.out.println("'" + burger.getMenuName() + " | " + burger.getMenuPrice() + "원 | " + burger.getMenuDescription() + "'");
-                } else if (inputForSelectBurgers == 0) {
-                    continue;
-                } else {
-                    throw new IllegalArgumentException("올바른 번호를 입력해주세요.");
-                }
-                break;
+        int inputForSelectBurgers = scanner.nextInt();
+        scanner.nextLine();
+
+
+
+        while (true) {
+            if (inputForSelectBurgers > 0 && inputForSelectBurgers <= menuItem.getTypeOfBurgers().size()) {
+                System.out.println("'" + burger.getMenuName() + " | " + burger.getMenuPrice() + "원 | " + burger.getMenuDescription() + "'");
+                return true;
+            } else if (inputForSelectBurgers == 0) {
+                return false;
+            } else {
+                throw new IllegalArgumentException("올바른 번호를 입력해주세요.");
             }
-            break;
         }
     }
+
 }
 

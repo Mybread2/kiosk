@@ -32,8 +32,6 @@ public class CommandForSelectMenu {
                 default:
                     throw new IllegalArgumentException("올바른 번호를 입력해주세요.");
             }
-
-
             break;
         }
     }

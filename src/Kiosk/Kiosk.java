@@ -18,11 +18,8 @@ public class Kiosk {
     public void runKiosk() {
 
         while (true) {
-
             selectMenu.selectMenu();
             selectBurger.selectBurger();
-
-            break;
         }
     }
 }

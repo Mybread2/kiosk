@@ -12,7 +12,6 @@ public class Main {
 
         Kiosk kiosk = new Kiosk(menuItem, menu, selectMenu, selectBurger);
 
-        mainLoop:
         while (true) {
             kiosk.runKiosk();
         }
