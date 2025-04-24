@@ -11,7 +11,7 @@ public class MenuItem {
         typeOfBurgurs.add(new String[]{"Hamburger    ", "W 5.4", "비프패티를 기반으로 야채가 들어간 기본버거"});
     }
 
-    public List<String[]> getTypeOfBurgurs() {
+    public List<String[]> getTypeOfBurgers() {
         return typeOfBurgurs;
     }
 }
