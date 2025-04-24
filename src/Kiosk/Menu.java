@@ -5,16 +5,16 @@ import java.util.List;
 
 public class Menu {
 
-    private final List<String> TypeOfFood = new ArrayList<>();
+    private final List<String> typeOfFood = new ArrayList<>();
 
     public List<String> getTypeOfFood() {
-        return TypeOfFood;
+        return typeOfFood;
     }
 
-    public void addMenuItems() {
-        TypeOfFood.add("Burgers");
-        TypeOfFood.add("Drinks");
-        TypeOfFood.add("Desserts");
+    public void addTypeOfFood() {
+        typeOfFood.add("Burgers");
+        typeOfFood.add("Drinks");
+        typeOfFood.add("Desserts");
     }
 
 

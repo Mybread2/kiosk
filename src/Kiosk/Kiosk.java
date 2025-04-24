@@ -15,7 +15,7 @@ public class Kiosk {
     }
 
     public void runKiosk() {
-        menu.addMenuItems();
+        menu.addTypeOfFood();
         menuItem.addMenuItems();
 
         typeOfFoodLoop :
@@ -29,10 +29,10 @@ public class Kiosk {
             System.out.println();
 
             while (true) {
-                int selectTypeOfFood = scanner.nextInt();
+                int inputForSelectTypeOfFood = scanner.nextInt();
                 scanner.nextLine();
 
-                switch (selectTypeOfFood) {
+                switch (inputForSelectTypeOfFood) {
                     case 1:
                         break;
                     case 2:
@@ -53,10 +53,10 @@ public class Kiosk {
 
             while (true) {
                 System.out.println("[ SHAKESHACK MENU ]");
-                for (int i = 0; i < menuItem.getDifferentTypeOfBurgurs().size(); i++) {
+                for (int i = 0; i < menuItem.getTypeOfBurgurs().size(); i++) {
                     System.out.print((i + 1) + ". ");
-                    for (int j = 0; j < menuItem.getDifferentTypeOfBurgurs().get(i).length; j++) {
-                        System.out.print(menuItem.getDifferentTypeOfBurgurs().get(i)[j] + " | ");
+                    for (int j = 0; j < menuItem.getTypeOfBurgurs().get(i).length; j++) {
+                        System.out.print(menuItem.getTypeOfBurgurs().get(i)[j] + " | ");
                     }
                     System.out.println();
                 }
@@ -65,17 +65,17 @@ public class Kiosk {
                 System.out.println();
 
                 while (true) {
-                    int selectNumber = scanner.nextInt();
+                    int inputForSelectBurgers = scanner.nextInt();
                     scanner.nextLine();
 
-                    if (selectNumber > 0 && selectNumber <= 4) {
-                        for (int i = 0; i < selectNumber; i++) {
-                            for (int j = 0; j < menuItem.getDifferentTypeOfBurgurs().get(i).length; j++) {
-                                System.out.print(menuItem.getDifferentTypeOfBurgurs().get(i)[j] + " | ");
+                    if (inputForSelectBurgers > 0 && inputForSelectBurgers <= 4) {
+                        for (int i = 0; i < inputForSelectBurgers; i++) {
+                            for (int j = 0; j < menuItem.getTypeOfBurgurs().get(i).length; j++) {
+                                System.out.print(menuItem.getTypeOfBurgurs().get(i)[j] + " | ");
                             }
                             System.out.println();
                         }
-                    } else if (selectNumber == 0) {
+                    } else if (inputForSelectBurgers == 0) {
                         continue typeOfFoodLoop;
                     } else {
                         System.out.println("올바른 번호를 입력해주세요.");

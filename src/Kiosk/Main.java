@@ -7,6 +7,5 @@ public class Main {
         Kiosk kiosk = new Kiosk(menuItem, menu);
 
         kiosk.runKiosk();
-
     }
 }
