@@ -4,8 +4,12 @@ public class Main {
     public static void main(String[] args) {
         MenuItem menuItem = new MenuItem();
         Menu menu = new Menu();
-        Kiosk kiosk = new Kiosk(menuItem, menu);
+        SelectMenu selectMenu = new SelectMenu(menu);
+        SelectBurger selectBurger = new SelectBurger(menuItem);
+        Kiosk kiosk = new Kiosk(menuItem, menu, selectMenu, selectBurger);
 
-        kiosk.runKiosk();
+        while (true) {
+            kiosk.runKiosk();
+        }
     }
 }
