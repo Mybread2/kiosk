@@ -42,7 +42,7 @@ public class CommandForSelectBurgers {
                 shoppingCart.addBurger(burger.getMenuName());
                 System.out.println(burger.getMenuName() + "이 장바구니에 추가되었습니다.");
                 return true;
-            } else if (inputForBurgerAddToCart == 2){
+            } else if (inputForBurgerAddToCart == 2) {
                 return false;
             } else {
                 throw new IllegalArgumentException("올바른 번호를 입력해주세요.");

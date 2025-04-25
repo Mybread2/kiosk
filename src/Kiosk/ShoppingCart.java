@@ -9,10 +9,13 @@ public class ShoppingCart {
     Scanner scanner = new Scanner(System.in);
 
     private final HashMap<String, Integer> shoppingCart = new HashMap<>();
-    MenuItem menuItem;
 
-    public ShoppingCart(MenuItem menuItem) {
+    MenuItem menuItem;
+    DiscountOperation discountOperation;
+
+    public ShoppingCart(MenuItem menuItem, DiscountOperation discountOperation) {
         this.menuItem = menuItem;
+        this.discountOperation = discountOperation;
     }
 
     public HashMap<String, Integer> getBurgerHashMap() {
@@ -49,7 +52,22 @@ public class ShoppingCart {
         int inputForOrderMenu = scanner.nextInt();
 
         if (inputForOrderMenu == 1) {
-            System.out.println("주문이 완료되었습니다. 금액은 " + totalPrice[0] + "원 입니다.");
+            System.out.println("총 금액은 " + totalPrice[0] + "원 입니다.");
+            System.out.println("1. 국가유공자 : 10%");
+            System.out.println("2. 군인      : 5%");
+            System.out.println("3. 학생      : 3%");
+            System.out.println("4. 일반      : 0%");
+
+            int inputForDiscount = scanner.nextInt();
+
+            if (inputForDiscount > 0 && inputForDiscount <= 4) {
+                int discountRate = DiscountOperation.DiscountType.getDiscountType(inputForDiscount);
+                totalPrice[0] = totalPrice[0] * (100 - discountRate) / 100;
+                System.out.println("주문이 완료되었습니다. 금액은 " + totalPrice[0] + "원 입니다.");
+            } else {
+                throw new IllegalArgumentException("올바른 번호를 입력해주세요.");
+            }
+
             System.exit(0);
         } else if (inputForOrderMenu == 2) {
             return false;

@@ -47,11 +47,11 @@ public class SelectMenu {
             }
         }
 
-            try {
-                commandForSelectMenu.commandForSelectMenu();
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-            }
+        try {
+            commandForSelectMenu.commandForSelectMenu();
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
 
     }
 }

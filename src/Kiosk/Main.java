@@ -4,7 +4,8 @@ public class Main {
     public static void main(String[] args) {
         MenuItem menuItem = new MenuItem();
         Menu menu = new Menu();
-        ShoppingCart shoppingCart = new ShoppingCart(menuItem);
+        DiscountOperation discountOperation = new DiscountOperation();
+        ShoppingCart shoppingCart = new ShoppingCart(menuItem, discountOperation);
         CommandForSelectBurgers commandForSelectBurgers = new CommandForSelectBurgers(menuItem, shoppingCart);
         CommandForSelectMenu commandForSelectMenu = new CommandForSelectMenu(menu);
         SelectMenu selectMenu = new SelectMenu(menu, commandForSelectMenu, shoppingCart);
