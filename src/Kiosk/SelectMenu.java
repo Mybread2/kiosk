@@ -34,25 +34,18 @@ public class SelectMenu {
             scanner.nextLine();
 
             if (inputForOrder == 4) {
-                while (true) {
-                    try {
-                        boolean order = shoppingCart.printCart();
-                        if (!order) {
-                            return;
-                        }
-                    } catch (IllegalArgumentException e) {
-                        System.out.println(e.getMessage());
+                try {
+                    boolean order = shoppingCart.printCart();
+                    if (!order) {
+                        return;
                     }
+                } catch (IllegalArgumentException e) {
+                    System.out.println(e.getMessage());
                 }
             }
         }
 
-        try {
-            commandForSelectMenu.commandForSelectMenu();
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
-
+        commandForSelectMenu.commandForSelectMenu();
     }
 }
 

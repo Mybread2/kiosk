@@ -17,18 +17,23 @@ public class CommandForSelectBurgers {
 
     public boolean commandForSelectBurgers() {
 
-        int inputForSelectBurgers = scanner.nextInt();
-        scanner.nextLine();
 
         while (true) {
-            if (inputForSelectBurgers > 0 && inputForSelectBurgers <= menuItem.getTypeOfBurgers().size()) {
-                this.burger = menuItem.getTypeOfBurgers().get(inputForSelectBurgers - 1);
-                System.out.println("'" + burger.getMenuName() + " | " + burger.getMenuPrice() + "원 | " + burger.getMenuDescription() + "'");
-                break;
-            } else if (inputForSelectBurgers == 0) {
-                return false;
-            } else {
-                throw new IllegalArgumentException("올바른 번호를 입력해주세요.");
+            try {
+                int inputForSelectBurgers = scanner.nextInt();
+                scanner.nextLine();
+
+                if (inputForSelectBurgers > 0 && inputForSelectBurgers <= menuItem.getTypeOfBurgers().size()) {
+                    this.burger = menuItem.getTypeOfBurgers().get(inputForSelectBurgers - 1);
+                    System.out.println("'" + burger.getMenuName() + " | " + burger.getMenuPrice() + "원 | " + burger.getMenuDescription() + "'");
+                    break;
+                } else if (inputForSelectBurgers == 0) {
+                    break;
+                } else {
+                    throw new IllegalArgumentException("올바른 번호를 입력해주세요.");
+                }
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
             }
         }
 
@@ -45,7 +50,7 @@ public class CommandForSelectBurgers {
             } else if (inputForBurgerAddToCart == 2) {
                 return false;
             } else {
-                throw new IllegalArgumentException("올바른 번호를 입력해주세요.");
+                System.out.println("올바른 번호를 입력해주세요.");
             }
         }
 

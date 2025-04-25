@@ -29,7 +29,8 @@ public class CommandForSelectMenu {
                     System.out.println("프로그램을 종료합니다.");
                     System.exit(0);
                 default:
-                    throw new IllegalArgumentException("올바른 번호를 입력해주세요.");
+                    System.out.println("올바른 번호를 입력해주세요.");
+                    continue;
             }
             break;
         }
