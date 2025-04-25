@@ -37,7 +37,6 @@ public class CommandForSelectBurgers {
 
         while (true) {
             int inputForBurgerAddToCart = scanner.nextInt();
-            scanner.nextLine();
 
             if (inputForBurgerAddToCart == 1) {
                 shoppingCart.addBurger(burger.getMenuName());

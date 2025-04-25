@@ -37,19 +37,16 @@ public class ShoppingCart {
             burgerOptional.ifPresent(burger -> {
                 double price = burger.getMenuPrice();
                 totalPrice[0] += price * count;
-                System.out.println(name + price + "원 | " + count + "개 | ");
+                System.out.println(name + " | " + price + "원 | " + count + "개 | ");
             });
-
-            System.out.println();
-            System.out.println("[ TOTAL PRICE ]");
-            System.out.println(totalPrice[0] + "원");
-            break;
         }
-
+        System.out.println();
+        System.out.println("[ TOTAL PRICE ]");
+        System.out.println(totalPrice[0] + "원");
         System.out.println();
         System.out.println("1. 주문     2. 메뉴판");
+
         int inputForOrderMenu = scanner.nextInt();
-        scanner.nextLine();
 
         if (inputForOrderMenu == 1) {
             System.out.println("주문이 완료되었습니다. 금액은 " + totalPrice[0] + "원 입니다.");

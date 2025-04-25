@@ -15,11 +15,10 @@ public class CommandForSelectMenu {
     public void commandForSelectMenu() {
         while (true) {
             int inputForSelectTypeOfFood = scanner.nextInt();
-            scanner.nextLine();
 
             switch (inputForSelectTypeOfFood) {
                 case 1:
-                    break;
+                    return;
                 case 2:
                     System.out.println("아직 개발 중인 메뉴입니다.");
                     break;

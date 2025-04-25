@@ -17,7 +17,6 @@ public class SelectMenu {
     }
 
     public void selectMenu() {
-
         System.out.println("[ MAIN MENU ]");
         for (int i = 0; i < menu.getTypeOfFood().size(); i++) {
             System.out.println((i + 1) + ". " + menu.getTypeOfFood().get(i));
@@ -29,6 +28,7 @@ public class SelectMenu {
             System.out.println("[ ORDER MENU ]");
             System.out.println("4. Orders");
             System.out.println("5. CanCle");
+            System.out.println();
 
             int inputForOrder = scanner.nextInt();
             scanner.nextLine();
@@ -47,15 +47,12 @@ public class SelectMenu {
             }
         }
 
-        while (true) {
             try {
                 commandForSelectMenu.commandForSelectMenu();
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
-                continue;
             }
-            break;
-        }
 
     }
 }
+

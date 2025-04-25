@@ -9,12 +9,9 @@ public class Main {
         CommandForSelectMenu commandForSelectMenu = new CommandForSelectMenu(menu);
         SelectMenu selectMenu = new SelectMenu(menu, commandForSelectMenu, shoppingCart);
         SelectBurger selectBurger = new SelectBurger(menuItem, commandForSelectBurgers);
-
-
         Kiosk kiosk = new Kiosk(menuItem, menu, selectMenu, selectBurger);
 
-        while (true) {
-            kiosk.runKiosk();
-        }
+        kiosk.runKiosk();
+
     }
 }
