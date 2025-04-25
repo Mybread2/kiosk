@@ -17,7 +17,6 @@ public class CommandForSelectBurgers {
 
     public boolean commandForSelectBurgers() {
 
-
         while (true) {
             try {
                 int inputForSelectBurgers = scanner.nextInt();
@@ -28,7 +27,7 @@ public class CommandForSelectBurgers {
                     System.out.println("'" + burger.getMenuName() + " | " + burger.getMenuPrice() + "원 | " + burger.getMenuDescription() + "'");
                     break;
                 } else if (inputForSelectBurgers == 0) {
-                    break;
+                    return false;
                 } else {
                     throw new IllegalArgumentException("올바른 번호를 입력해주세요.");
                 }

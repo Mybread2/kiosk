@@ -7,7 +7,7 @@ public class Main {
         DiscountOperation discountOperation = new DiscountOperation();
         ShoppingCart shoppingCart = new ShoppingCart(menuItem, discountOperation);
         CommandForSelectBurgers commandForSelectBurgers = new CommandForSelectBurgers(menuItem, shoppingCart);
-        CommandForSelectMenu commandForSelectMenu = new CommandForSelectMenu(menu);
+        CommandForSelectMenu commandForSelectMenu = new CommandForSelectMenu(menu, shoppingCart);
         SelectMenu selectMenu = new SelectMenu(menu, commandForSelectMenu, shoppingCart);
         SelectBurger selectBurger = new SelectBurger(menuItem, commandForSelectBurgers);
         Kiosk kiosk = new Kiosk(menuItem, menu, selectMenu, selectBurger);

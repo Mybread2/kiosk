@@ -1,10 +1,6 @@
 package Kiosk;
 
-import java.util.Scanner;
-
 public class SelectMenu {
-
-    Scanner scanner = new Scanner(System.in);
 
     Menu menu;
     CommandForSelectMenu commandForSelectMenu;
@@ -29,23 +25,8 @@ public class SelectMenu {
             System.out.println("4. Orders");
             System.out.println("5. CanCle");
             System.out.println();
-
-            int inputForOrder = scanner.nextInt();
-            scanner.nextLine();
-
-            if (inputForOrder == 4) {
-                try {
-                    boolean order = shoppingCart.printCart();
-                    if (!order) {
-                        return;
-                    }
-                } catch (IllegalArgumentException e) {
-                    System.out.println(e.getMessage());
-                }
-            }
         }
 
         commandForSelectMenu.commandForSelectMenu();
     }
 }
-
