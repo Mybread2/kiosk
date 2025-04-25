@@ -30,7 +30,19 @@ public class CommandForSelectMenu {
                         System.out.println(e.getMessage());
                     }
                 } else if (inputForSelectTypeOfFood == 5) {
-                    shoppingCart.getBurgerHashMap().clear();
+                    System.out.println("취소할 메뉴의 이름을 입력해주세요.");
+                    while (true) {
+                        String inputForCanCle = scanner.next();
+                        if (!shoppingCart.getBurgerHashMap().containsKey(inputForCanCle)) {
+                            System.out.println("올바른 메뉴명을 입력해주세요.");
+                            continue;
+                        } else if (shoppingCart.getBurgerHashMap().containsKey(inputForCanCle)) {
+                            System.out.println(inputForCanCle + "가 삭제되었습니다.");
+                            shoppingCart.getBurgerHashMap().remove(inputForCanCle);
+                            break;
+                        }
+                        break;
+                    }
                 }
             } else {
                 switch (inputForSelectTypeOfFood) {

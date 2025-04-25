@@ -17,6 +17,7 @@ public class SelectMenu {
         for (int i = 0; i < menu.getTypeOfFood().size(); i++) {
             System.out.println((i + 1) + ". " + menu.getTypeOfFood().get(i));
         }
+
         System.out.println("0. 종료");
         System.out.println();
 

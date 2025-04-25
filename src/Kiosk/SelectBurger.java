@@ -12,9 +12,11 @@ public class SelectBurger {
 
     public void selectBurger() {
         System.out.println("[ BURGERS MENU ]");
-        for (Burger burger : menuItem.getTypeOfBurgers()) {
-            System.out.println(burger.getBurgerId() + ". " + burger.getMenuName() + " | " + burger.getMenuPrice() + "원 | " + burger.getMenuDescription());
-        }
+        menuItem.getTypeOfBurgers().stream()
+                .forEach(burger ->{
+                    System.out.println(burger.getBurgerId() + ". " + burger.getMenuName() + " | " + burger.getMenuPrice() + "원 | " + burger.getMenuDescription());
+                });
+
         System.out.println("0. 뒤로가기");
         System.out.println();
 
