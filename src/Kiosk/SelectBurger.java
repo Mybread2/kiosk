@@ -12,7 +12,7 @@ public class SelectBurger {
 
     public void selectBurger() {
         System.out.println("[ BURGERS MENU ]");
-        menuItem.getTypeOfBurgers().stream()
+        menuItem.getTypeOfBurgers()
                 .forEach(burger ->{
                     System.out.println(burger.getBurgerId() + ". " + burger.getMenuName() + " | " + burger.getMenuPrice() + "원 | " + burger.getMenuDescription());
                 });
