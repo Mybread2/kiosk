@@ -1,13 +1,19 @@
 package Kiosk;
 
+import java.util.Scanner;
+
 public class SelectMenu {
+
+    Scanner scanner = new Scanner(System.in);
 
     Menu menu;
     CommandForSelectMenu commandForSelectMenu;
+    ShoppingCart shoppingCart;
 
-    public SelectMenu(Menu menu, CommandForSelectMenu commandForSelectMenu) {
+    public SelectMenu(Menu menu, CommandForSelectMenu commandForSelectMenu, ShoppingCart shoppingCart) {
         this.menu = menu;
         this.commandForSelectMenu = commandForSelectMenu;
+        this.shoppingCart = shoppingCart;
     }
 
     public void selectMenu() {
@@ -18,6 +24,28 @@ public class SelectMenu {
         }
         System.out.println("0. 종료");
         System.out.println();
+
+        if (!shoppingCart.getBurgerHashMap().isEmpty()) {
+            System.out.println("[ ORDER MENU ]");
+            System.out.println("4. Orders");
+            System.out.println("5. CanCle");
+
+            int inputForOrder = scanner.nextInt();
+            scanner.nextLine();
+
+            if (inputForOrder == 4) {
+                while (true) {
+                    try {
+                        boolean order = shoppingCart.printCart();
+                        if (!order) {
+                            return;
+                        }
+                    } catch (IllegalArgumentException e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+            }
+        }
 
         while (true) {
             try {

@@ -2,6 +2,7 @@ package Kiosk;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 public class MenuItem {
@@ -16,6 +17,13 @@ public class MenuItem {
 
     public List<Burger> getTypeOfBurgers() {
         return typeOfBurgurs;
+    }
+
+    public Optional<Burger> findBurgerByName(String burgerName){
+        return typeOfBurgurs.stream()
+                .filter(burger -> burger.getMenuName().equals(burgerName))
+                .findFirst();
+
     }
 }
 
