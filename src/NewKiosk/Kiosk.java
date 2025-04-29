@@ -1,6 +1,7 @@
 package NewKiosk;
 
 import java.util.Scanner;
+import java.util.stream.IntStream;
 
 public class Kiosk {
 
@@ -37,9 +38,8 @@ public class Kiosk {
     private void showMainMenu() {
         // 메인 메뉴 출력
         System.out.println("[ MAIN MENU ]");
-        for (int i = 0; i < mainMenu.mainMenu.size(); i++) {
-            System.out.println((i + 1) + ". " + mainMenu.mainMenu.get(i));
-        }
+        IntStream.range(0, mainMenu.mainMenu.size()) // 시작값 0부터 종료값 3까지의 정수 스트림을 생성
+                .forEach(i -> System.out.println((i + 1) + ". " + mainMenu.mainMenu.get(i))); // 스트림의 각 요소에 대해 작업을 실행, i는 현재 처리 중인 스트림의 인덱스
         System.out.println("0. 종료");
 
         // 장바구니가 있는 경우 추가 메뉴 표시
@@ -73,8 +73,8 @@ public class Kiosk {
     private void showBurgerMenu() {
         // 버거 메뉴 출력
         System.out.println("[ BURGER MENU ]");
-        burgerMenu.getBurgers().forEach(System.out::println);
-        System.out.println("0. 뒤로가기");
+        burgerMenu.getBurgers().forEach(System.out::println); // 리스트를 가져와서 .forEach(컬렉션의 각 요소에 대해 작업을 수행) 해준다.
+        System.out.println("0. 뒤로가기");                      // System.out::println 는 객체::메소드 형태로 사용
 
         // 버거 메뉴 입력 처리
         while (true) {

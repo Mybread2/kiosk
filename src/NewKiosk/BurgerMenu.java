@@ -1,8 +1,6 @@
 package NewKiosk;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class BurgerMenu {
     private final List<Burger> burgers = new ArrayList<>();{
@@ -13,7 +11,7 @@ public class BurgerMenu {
     }
 
     public List<Burger> getBurgers() {
-        return burgers;
+        return Collections.unmodifiableList(burgers);
     }
 
     public Optional<Burger> findBurgerByName(String burgerName){
