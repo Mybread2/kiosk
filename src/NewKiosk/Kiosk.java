@@ -40,34 +40,44 @@ public class Kiosk {
 
         // 메인 메뉴 입력 처리
         while (true) {
-            int input = scanner.nextInt();
+            try {
+                String input = scanner.nextLine().trim();
+                int choice = Integer.parseInt(input);
 
-            if (shoppingCartList.getShoppingCart().isEmpty() && (input == 4 || input == 5)) {
-                System.out.println("올바른 번호를 입력해주세요.");
-                continue;
-            }
-
-            switch (input) {
-                case 1:
-                    runBurgerMenu();
-                    return;
-                case 2, 3:
-                    System.out.println("준비 중인 메뉴입니다.");
+                if (input.isEmpty()) {
+                    System.out.println("선택을 입력해주세요.");
                     continue;
-                case 4:
-                    order.order();
-                    return;
-                case 5:
-                    shoppingCartList.getShoppingCart().clear();
-                    return;
-                case 0:
-                    System.exit(0);
-                default:
+                }
+
+                if (shoppingCartList.getShoppingCart().isEmpty() && (choice == 4 || choice == 5)) {
                     System.out.println("올바른 번호를 입력해주세요.");
                     continue;
+                }
+
+                switch (choice) {
+                    case 1:
+                        runBurgerMenu();
+                        return;
+                    case 2, 3:
+                        System.out.println("준비 중인 메뉴입니다.");
+                        continue;
+                    case 4:
+                        order.order();
+                        return;
+                    case 5:
+                        shoppingCartList.getShoppingCart().clear();
+                        return;
+                    case 0:
+                        System.exit(0);
+                    default:
+                        System.out.println("올바른 번호를 입력해주세요.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("숫자만 입력해주세요.");
             }
         }
     }
+
     private void runBurgerMenu() {
         // 버거 메뉴 출력
         System.out.println("[ BURGER MENU ]");
@@ -78,40 +88,58 @@ public class Kiosk {
 
         // 버거 메뉴 입력 처리
         while (true) {
-            int input = scanner.nextInt();
+            try {
+                String input = scanner.nextLine().trim();
+                int choice = Integer.parseInt(input);
 
-            if (input > 0 && input <= burgerMenu.getBurgers().size()) {
-                Burger selectedBurger = burgerMenu.getBurgers().get(input - 1);
-                System.out.println(selectedBurger);
-                System.out.println("위 메뉴를 장바구니에 추가하시겠습니까?");
-                System.out.println("1. 확인       2. 취소");
+                if (input.isEmpty()) {
+                    System.out.println("선택을 입력해주세요.");
+                    continue;
+                }
 
-                processAddToCart(selectedBurger);
-                return;
-            } else if (input == 0) {
-                return;
-            } else {
-                System.out.println("올바른 번호를 입력해주세요.");
+                if (choice > 0 && choice <= burgerMenu.getBurgers().size()) {
+                    Burger selectedBurger = burgerMenu.getBurgers().get(choice - 1);
+                    System.out.println(selectedBurger);
+                    System.out.println("위 메뉴를 장바구니에 추가하시겠습니까?");
+                    System.out.println("1. 확인       2. 취소");
+
+                    processAddToCart(selectedBurger);
+                    return;
+                } else if (choice == 0) {
+                    return;
+                } else {
+                    System.out.println("올바른 번호를 입력해주세요.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("숫자만 입력해주세요.");
             }
         }
     }
 
     private void processAddToCart(Burger burger) {
         while (true) {
-            int input = scanner.nextInt();
-            switch (input) {
-                case 1:
-                    shoppingCartList.addBurger(burger.getBurgerName());
-                    System.out.println(burger.getBurgerName() + " 이 장바구니에 추가되었습니다.");
-                    return;
-                case 2:
-                    return;
-                default:
-                    System.out.println("올바른 번호를 입력해주세요.");
+            try {
+                String input = scanner.nextLine().trim();
+                int choice = Integer.parseInt(input);
+
+                if (input.isEmpty()) {
+                    System.out.println("선택을 입력해주세요.");
+                    continue;
+                }
+
+                switch (choice) {
+                    case 1:
+                        shoppingCartList.addBurger(burger.getBurgerName());
+                        System.out.println(burger.getBurgerName() + " 이 장바구니에 추가되었습니다.");
+                        return;
+                    case 2:
+                        return;
+                    default:
+                        System.out.println("올바른 번호를 입력해주세요.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("숫자만 입력해주세요.");
             }
         }
     }
-
-
-
 }

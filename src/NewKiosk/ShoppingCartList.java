@@ -16,7 +16,7 @@ public class ShoppingCartList {
         shoppingCart.merge(burgerName, 1, Integer::sum);
     }
 
-    public void ClearShoppingCart(){
+    public void clearShoppingCart(){
         shoppingCart.clear();
     }
 }
