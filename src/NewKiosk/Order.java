@@ -21,8 +21,8 @@ public class Order {
 
         final double[] totalPrice = {0.0};
 
-        for (String burgerName : shoppingCartList.getBurgerHashMap().keySet()) {
-            int count = shoppingCartList.getBurgerHashMap().get(burgerName);
+        for (String burgerName : shoppingCartList.getShoppingCart().keySet()) {
+            int count = shoppingCartList.getShoppingCart().get(burgerName);
             Optional<Burger> burger = burgerMenu.findBurgerByName(burgerName);
 
             burger.ifPresent(burger1 -> {
@@ -44,7 +44,7 @@ public class Order {
 
             if (inputForOrder == 1){
                 System.out.println("주문이 완료되었습니다. 금액은 W " + totalPrice[0] + "입니다.");
-                shoppingCartList.getBurgerHashMap().clear();
+                shoppingCartList.ClearShoppingCart();
                 break;
             } if (inputForOrder == 2){
                 break;

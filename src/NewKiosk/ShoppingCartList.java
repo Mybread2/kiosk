@@ -1,22 +1,22 @@
 package NewKiosk;
 
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Map;
 
 public class ShoppingCartList {
 
-    private final HashMap<String,Integer> shoppingCart = new HashMap<>();
+    private final Map<String,Integer> shoppingCart = new HashMap<>();
 
-    BurgerMenu burgerMenu;
-
-    public ShoppingCartList(BurgerMenu burgerMenu) {
-        this.burgerMenu = burgerMenu;
-    }
-
-    public HashMap<String, Integer> getBurgerHashMap() {
-        return shoppingCart;
+    public Map<String, Integer> getShoppingCart() {
+        return Collections.unmodifiableMap(shoppingCart);
     }
 
     public void addBurger(String burgerName) {
-        shoppingCart.put(burgerName, shoppingCart.getOrDefault(burgerName, 0) + 1);
+        shoppingCart.merge(burgerName, 1, Integer::sum);
+    }
+
+    public void ClearShoppingCart(){
+        shoppingCart.clear();
     }
 }
