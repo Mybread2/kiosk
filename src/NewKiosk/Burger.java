@@ -1,10 +1,10 @@
 package NewKiosk;
 
 public class Burger {
-    int burgerId;
-    String burgerName;
-    double burgerPrice;
-    String burgerDescription;
+    private final int burgerId;
+    private final String burgerName;
+    private final double burgerPrice;
+    private final String burgerDescription;
 
     public Burger(int burgerId, String burgerName, double burgerPrice, String burgerDescription) {
         this.burgerId = burgerId;
@@ -19,5 +19,10 @@ public class Burger {
 
     public double getBurgerPrice() {
         return burgerPrice;
+    }
+
+    @Override
+    public String toString() {
+        return burgerId + ". " + burgerName + " | W " + burgerPrice + " | " + burgerDescription;
     }
 }

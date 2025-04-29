@@ -30,8 +30,6 @@ public class Order {
                 totalPrice[0] += price * count;
                 System.out.println(burgerName + " | " + price + "원 | " + count + "개 | ");
             });
-
-
         }
 
         System.out.println();
@@ -46,6 +44,7 @@ public class Order {
 
             if (inputForOrder == 1){
                 System.out.println("주문이 완료되었습니다. 금액은 W " + totalPrice[0] + "입니다.");
+                shoppingCartList.getBurgerHashMap().clear();
                 break;
             } if (inputForOrder == 2){
                 break;

@@ -8,6 +8,7 @@ public class RunBurgerMenu {
 
     BurgerMenu burgerMenu;
     ShoppingCartList shoppingCartList;
+    Burger burger;
 
     public RunBurgerMenu(BurgerMenu burgerMenu, ShoppingCartList shoppingCartList) {
         this.burgerMenu = burgerMenu;
@@ -16,9 +17,8 @@ public class RunBurgerMenu {
 
     public void runBurgerMenu() {
         System.out.println("[ BURGER MENU ]");
-        for (int i = 0; i < burgerMenu.getBurgers().size(); i++) {
-            Burger burger = burgerMenu.getBurgers().get(i);
-            System.out.println((i + 1) + ". " + burger.burgerName + " | " + burger.burgerPrice + " | " + burger.burgerDescription);
+        for (Burger burger : burgerMenu.getBurgers()) {
+            System.out.println(burger.toString());
         }
         System.out.println("0. 뒤로가기");
 
@@ -26,8 +26,8 @@ public class RunBurgerMenu {
             int inputForBurgerMenu = scanner.nextInt();
 
             if (inputForBurgerMenu > 0 && inputForBurgerMenu <= burgerMenu.getBurgers().size()) {
-                Burger selectedBurger = burgerMenu.getBurgers().get(inputForBurgerMenu - 1);
-                System.out.println(selectedBurger.burgerName + " | W " + selectedBurger.burgerPrice + " | " + selectedBurger.burgerDescription);
+                Burger selectedBurger = burgerMenu.getBurgers().get(inputForBurgerMenu - 1); // 선택한 버거 객체 가져오기
+                System.out.println(selectedBurger); // toString() 호출로 버거 정보 출력
                 System.out.println("위 메뉴를 장바구니에 추가하시겠습니까?");
 
                 System.out.println("1. 확인       2. 취소");
@@ -36,8 +36,8 @@ public class RunBurgerMenu {
                     int inputForBurgerAddToCart = scanner.nextInt();
 
                     if (inputForBurgerAddToCart == 1) {
-                        shoppingCartList.addBurger(selectedBurger.burgerName);
-                        System.out.println(selectedBurger.burgerName+ " 이 장바구니에 추가되었습니다.");
+                        shoppingCartList.addBurger(selectedBurger.getBurgerName());
+                        System.out.println(selectedBurger.getBurgerName()+ " 이 장바구니에 추가되었습니다.");
                         return;
                     } else if (inputForBurgerAddToCart == 2) {
                         return;
