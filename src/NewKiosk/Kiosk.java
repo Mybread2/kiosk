@@ -3,6 +3,8 @@ package NewKiosk;
 import java.util.Scanner;
 import java.util.stream.IntStream;
 
+
+// 모든 기능들을 모아준 클래스
 public class Kiosk {
     private final Scanner scanner = new Scanner(System.in);
     private final MainMenu mainMenu;
@@ -37,8 +39,8 @@ public class Kiosk {
     private void showMainMenu() {
         // 메인 메뉴 출력
         System.out.println("[ MAIN MENU ]");
-        IntStream.range(0, mainMenu.mainMenu.size()) // 시작값 0부터 종료값 3까지의 정수 스트림을 생성
-                .forEach(i -> System.out.println((i + 1) + ". " + mainMenu.mainMenu.get(i))); // 스트림의 각 요소에 대해 작업을 실행, i는 현재 처리 중인 스트림의 인덱스
+        IntStream.range(0, mainMenu.getMainMenu().size()) // 시작값 0부터 종료값 3까지의 정수 스트림을 생성
+                .forEach(i -> System.out.println((i + 1) + ". " + mainMenu.getMainMenu().get(i))); // 스트림의 각 요소에 대해 작업을 실행, i는 현재 처리 중인 스트림의 인덱스
         System.out.println("0. 종료");
 
         // 장바구니가 있는 경우 추가 메뉴 표시
@@ -105,6 +107,7 @@ public class Kiosk {
         }
     }
 
+    // 장바구니에 추가해주는 클래스
     private void processAddToCart(Burger burger) {
         while (true) {
             switch (getChoice()) {

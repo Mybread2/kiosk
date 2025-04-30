@@ -1,5 +1,6 @@
 package NewKiosk;
 
+// 할인율을 관리하는 클래스
 public class DiscountOperation {
 
     public enum DiscountType {
@@ -34,6 +35,7 @@ public class DiscountOperation {
             return price * (100 - discountRate) / 100;
         }
 
+        // 열거형 타입에서 번호로 할인 타입을 찾는 메서드
         public static DiscountType findByNumber(int number) {
             for (DiscountType type : values()) {
                 if (type.getNumber() == number) {
