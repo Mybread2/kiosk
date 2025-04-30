@@ -36,7 +36,7 @@ public class DiscountOperation {
 
         public static DiscountType findByNumber(int number) {
             for (DiscountType type : values()) {
-                if (type.getDiscountRate() == number) {
+                if (type.getNumber() == number) {
                     return type;
                 }
             }

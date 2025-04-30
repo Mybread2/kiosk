@@ -14,6 +14,16 @@ public class Order {
         this.scanner = scanner;
     }
 
+    private int getValidIntegerInput(String errorMessage) {
+        while (true) {
+            try {
+                return Integer.parseInt(scanner.nextLine().trim());
+            } catch (NumberFormatException e) {
+                System.out.println(errorMessage);
+            }
+        }
+    }
+
     public void order() {
         System.out.println("아래와 같이 주문하시겠습니까?");
         System.out.println(" [ ORDER ]");
@@ -39,40 +49,33 @@ public class Order {
         System.out.println("1. 주문         2. 메뉴판");
 
         while (true) {
-            try {
-                int inputForOrder = Integer.parseInt(scanner.nextLine().trim());
+            int inputForOrder = getValidIntegerInput("숫자만 입력해주세요.");
 
-                if (inputForOrder == 1) {
-                    System.out.println();
-                    for (DiscountOperation.DiscountType discountType : DiscountOperation.DiscountType.values()) {
-                        System.out.println(discountType.getNumber() + ". " + discountType.getCategory() + " : " + discountType.getDiscountRate() + "%");
-                    }
+            if (inputForOrder == 1) {
+                System.out.println();
+                for (DiscountOperation.DiscountType discountType : DiscountOperation.DiscountType.values()) {
+                    System.out.println(discountType.getNumber() + ". " + discountType.getCategory() + " : " + discountType.getDiscountRate() + "%");
+                }
 
+                while (true) {
+                    int inputForDiscount = getValidIntegerInput("숫자만 입력해주세요.");
                     try {
-                        int inputForDiscount = Integer.parseInt(scanner.nextLine().trim());
-                        try {
-                            DiscountOperation.DiscountType selectedDiscount = DiscountOperation.DiscountType.findByNumber(inputForDiscount);
-                            totalPrice = selectedDiscount.applyDiscount(totalPrice);
+                        DiscountOperation.DiscountType selectedDiscount = DiscountOperation.DiscountType.findByNumber(inputForDiscount);
+                        totalPrice = selectedDiscount.applyDiscount(totalPrice);
 
-                            System.out.println();
-                            System.out.println("주문이 완료되었습니다. 금액은 W " + totalPrice + " 입니다.");
-                            System.out.println();
-                            shoppingCartList.clearShoppingCart();
-                            break;
-                        } catch (IllegalArgumentException e) {
-                            System.out.println("올바른 번호를 입력해주세요.");
-                        }
-                    } catch (NumberFormatException e) {
-                        System.out.println("숫자만 입력해주세요.");
+                        System.out.println();
+                        System.out.println("주문이 완료되었습니다. 금액은 W " + totalPrice + " 입니다.");
+                        System.out.println();
+                        shoppingCartList.clearShoppingCart();
+                        return;
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("올바른 번호를 입력해주세요.");
                     }
                 }
-                if (inputForOrder == 2) {
-                    break;
-                } else {
-                    System.out.println("1 또는 2만 입력 가능합니다.");
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("숫자만 입력해주세요.");
+            } else if (inputForOrder == 2) {
+                return;
+            } else {
+                System.out.println("1 또는 2만 입력 가능합니다.");
             }
         }
     }
