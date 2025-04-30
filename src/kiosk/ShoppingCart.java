@@ -1,4 +1,4 @@
-package Kiosk;
+package kiosk;
 
 import java.util.HashMap;
 import java.util.Optional;
