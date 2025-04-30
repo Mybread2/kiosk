@@ -1,11 +1,11 @@
-package NewKiosk;
+package newKiosk;
 
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 // 햄버거 키오스크의 장바구니를 관리하는 클래스 (메뉴 추가, 삭제, 조회 기능)
-public class ShoppingCartList {
+public class ShoppingCart {
 
     private final Map<String,Integer> shoppingCart = new HashMap<>();
 

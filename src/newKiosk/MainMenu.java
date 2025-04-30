@@ -1,4 +1,4 @@
-package NewKiosk;
+package newKiosk;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package NewKiosk;
+package newKiosk;
 
 // 버거의 속성을 관리해주는 클래스
 public class Burger {

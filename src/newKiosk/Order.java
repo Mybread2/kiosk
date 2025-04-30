@@ -1,4 +1,4 @@
-package NewKiosk;
+package newKiosk;
 
 import java.util.Optional;
 import java.util.Scanner;
@@ -6,17 +6,17 @@ import java.util.Scanner;
 // 장바구니에 저장된 메뉴들을 주문하고 총합을 계산하는 클래스
 public class Order {
     private final Scanner scanner;
-    private final ShoppingCartList shoppingCartList;
+    private final ShoppingCart shoppingCartList;
     private final BurgerMenu burgerMenu;
 
-    public Order(ShoppingCartList shoppingCartList, BurgerMenu burgerMenu, Scanner scanner) {
+    public Order(ShoppingCart shoppingCartList, BurgerMenu burgerMenu, Scanner scanner) {
         this.shoppingCartList = shoppingCartList;
         this.burgerMenu = burgerMenu;
         this.scanner = scanner;
     }
 
     // 문자열을 입력받았을 때 예외처리를 해주는 메서드
-    private int getValidIntegerInput(String errorMessage) {
+    private int getIntegerInput(String errorMessage) {
         while (true) {
             try {
                 return Integer.parseInt(scanner.nextLine().trim());
@@ -56,7 +56,7 @@ public class Order {
         System.out.println("1. 주문         2. 메뉴판");
 
         while (true) {
-            int inputForOrder = getValidIntegerInput("숫자만 입력해주세요.");
+            int inputForOrder = getIntegerInput("숫자만 입력해주세요.");
 
             if (inputForOrder == 1) {
                 System.out.println();
@@ -66,7 +66,7 @@ public class Order {
                 }
 
                 while (true) {
-                    int inputForDiscount = getValidIntegerInput("숫자만 입력해주세요.");
+                    int inputForDiscount = getIntegerInput("숫자만 입력해주세요.");
                     try {
                         // 입력된 번호로 해당하는 할인 타입을 찾아준다.
                         DiscountOperation.DiscountType selectedDiscount = DiscountOperation.DiscountType.findByNumber(inputForDiscount);

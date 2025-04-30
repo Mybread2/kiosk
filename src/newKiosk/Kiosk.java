@@ -1,4 +1,4 @@
-package NewKiosk;
+package newKiosk;
 
 import java.util.Scanner;
 import java.util.stream.IntStream;
@@ -9,13 +9,13 @@ public class Kiosk {
     private final Scanner scanner = new Scanner(System.in);
     private final MainMenu mainMenu;
     private final BurgerMenu burgerMenu;
-    private final ShoppingCartList shoppingCartList;
+    private final ShoppingCart shoppingCartList;
     private final Order order;
 
     public Kiosk() {
         this.mainMenu = new MainMenu();
         this.burgerMenu = new BurgerMenu();
-        this.shoppingCartList = new ShoppingCartList();
+        this.shoppingCartList = new ShoppingCart();
         this.order = new Order(shoppingCartList, burgerMenu, scanner);
 
     }

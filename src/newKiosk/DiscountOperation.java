@@ -1,4 +1,4 @@
-package NewKiosk;
+package newKiosk;
 
 // 할인율을 관리하는 클래스
 public class DiscountOperation {
@@ -42,7 +42,7 @@ public class DiscountOperation {
                     return type;
                 }
             }
-            throw new IllegalArgumentException("유호하지 않은 할인 번호입니다.");
+            throw new IllegalArgumentException("유효하지 않은 할인 번호입니다.");
         }
     }
 }
