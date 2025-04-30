@@ -29,13 +29,21 @@
 
 ## 📁 파일 구성
 NewKiosk/ 
+
 ├── Burger.java // 버거 정보 (ID, 이름, 가격, 설명)
+
 ├── BurgerMenu.java // 버거 메뉴 리스트 및 조회 기능 
+
 ├── DiscountOperation.java// 할인 유형 및 로직 
+
 ├── ShoppingCartList.java // 장바구니 추가/조회/초기화 기능 
+
 ├── Order.java // 주문 전체 흐름 처리 (할인 적용 포함) 
+
 ├── MainMenu.java // 메인 메뉴 텍스트 출력 
+
 ├── Kiosk.java // 프로그램 실행 및 전체 플로우 제어 
+
 └── Main.java // 진입점: main 메소드
 
 ---
@@ -48,7 +56,7 @@ NewKiosk/
 3. Desserts
 0. 종료
 
-> 1
+입력 : 1
 
 [ BURGER MENU ]
 1. ShackBurger | W 6.9 | 토마토, 양상추, 쉑소스가 토핑된 치즈버거
@@ -57,13 +65,13 @@ NewKiosk/
 4. Hamburger   | W 6.9 | 비프패티를 기반으로 야채가 들어간 기본버거
 0. 뒤로가기
 
-> 2
+입력 : 2
 
 SmokeShack | W 6.9 | 베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거  
 위 메뉴를 장바구니에 추가하시겠습니까?  
 1. 확인       2. 취소
 
-> 1  
+입력 : 1  
 SmokeShack 이 장바구니에 추가되었습니다.
 
 [ MAIN MENU ]
@@ -75,7 +83,7 @@ SmokeShack 이 장바구니에 추가되었습니다.
 4. Orders
 5. Cancel
 
-> 4
+입력 : 4
 
 아래와 같이 주문하시겠습니까?
 [ ORDER ]
@@ -86,14 +94,14 @@ W 6.9
 
 1. 주문         2. 메뉴판
 
-> 1
+입력 : 1
 
 1. 국가유공자 : 10%  
 2. 군인       : 5%  
 3. 학생       : 3%  
 4. 일반       : 0%
 
-> 2
+입력 : 2
 
 주문이 완료되었습니다. 금액은 W 6.555 입니다.
 
