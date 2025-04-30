@@ -39,7 +39,7 @@ public class Order {
             // 버거 이름으로 실제 버거 객체를 찾아서 Optional로 반환 (null이 반환될 수도 있기에 사용)
             Optional<Burger> burger = burgerMenu.findBurgerByName(burgerName);
 
-            // Optional애서 버거 객체가 존재하는지 확인
+            // Optional 에서 버거 객체가 존재하는지 확인
             if (burger.isPresent()) {
                 // 찾은 버거 객체에서 가격 정보를 가져온다.
                 double price = burger.get().getBurgerPrice();

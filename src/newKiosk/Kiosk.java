@@ -74,7 +74,7 @@ public class Kiosk {
                     return;
                 }
                 case 0 -> {
-                    scanner.close(); // 프로그램 종료 전 scanner 닫기
+                    scanner.close();
                     System.exit(0);
                 }
                 default -> System.out.println("올바른 번호를 입력해주세요.");
@@ -86,7 +86,7 @@ public class Kiosk {
         // 버거 메뉴 출력
         System.out.println("[ BURGER MENU ]");
         burgerMenu.getBurgers().forEach(System.out::println); // 리스트를 가져와서 .forEach(컬렉션의 각 요소에 대해 작업을 수행) 해준다.
-        System.out.println("0. 뒤로가기");                      // System.out::println 는 객체::메소드 형태로 사용
+        System.out.println("0. 뒤로가기");                      // System.out::println 는 객체::메소드 형태로 사용, Burger 클래스의 toString()을 정의해서 사용할 수 있다.
 
         // 버거 메뉴 입력 처리
         while (true) {

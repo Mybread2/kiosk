@@ -7,7 +7,7 @@ import java.util.Map;
 // 햄버거 키오스크의 장바구니를 관리하는 클래스 (메뉴 추가, 삭제, 조회 기능)
 public class ShoppingCart {
 
-    private final Map<String,Integer> shoppingCart = new HashMap<>();
+    private final Map<String, Integer> shoppingCart = new HashMap<>();
 
     // 외부에서 Map을 직접 수정하지 못하도록 불변 Map 으로 반환
     public Map<String, Integer> getShoppingCart() {
@@ -19,7 +19,7 @@ public class ShoppingCart {
         shoppingCart.merge(burgerName, 1, Integer::sum);
     }
 
-    public void clearShoppingCart(){
+    public void clearShoppingCart() {
         shoppingCart.clear();
     }
 }
