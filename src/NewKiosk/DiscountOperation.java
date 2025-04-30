@@ -30,5 +30,17 @@ public class DiscountOperation {
             return discountRate;
         }
 
+        public double applyDiscount(double price){
+            return price * (100 - discountRate) / 100;
+        }
+
+        public static DiscountType findByNumber(int number) {
+            for (DiscountType type : values()) {
+                if (type.getDiscountRate() == number) {
+                    return type;
+                }
+            }
+            throw new IllegalArgumentException("유호하지 않은 할인 번호입니다.");
+        }
     }
 }

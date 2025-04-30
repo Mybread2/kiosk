@@ -8,7 +8,6 @@ public class Kiosk {
     private final Scanner scanner = new Scanner(System.in);
     private final MainMenu mainMenu;
     private final BurgerMenu burgerMenu;
-    private final DiscountOperation discountOperation;
     private final ShoppingCartList shoppingCartList;
     private final Order order;
 
@@ -16,9 +15,8 @@ public class Kiosk {
     public Kiosk() {
         this.mainMenu = new MainMenu();
         this.burgerMenu = new BurgerMenu();
-        this.discountOperation = new DiscountOperation();
         this.shoppingCartList = new ShoppingCartList();
-        this.order = new Order(shoppingCartList, burgerMenu, discountOperation);
+        this.order = new Order(shoppingCartList, burgerMenu);
 
     }
 
