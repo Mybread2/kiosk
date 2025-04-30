@@ -4,19 +4,17 @@ import java.util.Scanner;
 import java.util.stream.IntStream;
 
 public class Kiosk {
-
     private final Scanner scanner = new Scanner(System.in);
     private final MainMenu mainMenu;
     private final BurgerMenu burgerMenu;
     private final ShoppingCartList shoppingCartList;
     private final Order order;
 
-
     public Kiosk() {
         this.mainMenu = new MainMenu();
         this.burgerMenu = new BurgerMenu();
         this.shoppingCartList = new ShoppingCartList();
-        this.order = new Order(shoppingCartList, burgerMenu);
+        this.order = new Order(shoppingCartList, burgerMenu, scanner);
 
     }
 
@@ -25,7 +23,6 @@ public class Kiosk {
             showMainMenu();
         }
     }
-
 
     private int getChoice() {
         while (true) {
@@ -61,16 +58,27 @@ public class Kiosk {
             }
 
             switch (choice) {
-                case 1 -> { showBurgerMenu(); return; }
+                case 1 -> {
+                    showBurgerMenu();
+                    return;
+                }
                 case 2, 3 -> System.out.println("준비 중인 메뉴입니다.");
-                case 4 -> { order.order(); return; }
-                case 5 -> { shoppingCartList.clearShoppingCart(); return; }
-                case 0 -> System.exit(0);
+                case 4 -> {
+                    order.order();
+                    return;
+                }
+                case 5 -> {
+                    shoppingCartList.clearShoppingCart();
+                    return;
+                }
+                case 0 -> {
+                    scanner.close(); // 프로그램 종료 전 scanner 닫기
+                    System.exit(0);
+                }
                 default -> System.out.println("올바른 번호를 입력해주세요.");
             }
         }
     }
-
 
     private void showBurgerMenu() {
         // 버거 메뉴 출력
@@ -105,10 +113,11 @@ public class Kiosk {
                     System.out.println(burger.getBurgerName() + " 이 장바구니에 추가되었습니다.");
                     return;
                 }
-                case 2 -> { return; }
+                case 2 -> {
+                    return;
+                }
                 default -> System.out.println("올바른 번호를 입력해주세요.");
             }
         }
-
     }
 }

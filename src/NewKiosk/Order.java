@@ -4,14 +4,14 @@ import java.util.Optional;
 import java.util.Scanner;
 
 public class Order {
-
-    private final Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner;
     private final ShoppingCartList shoppingCartList;
     private final BurgerMenu burgerMenu;
 
-    public Order(ShoppingCartList shoppingCartList, BurgerMenu burgerMenu) {
+    public Order(ShoppingCartList shoppingCartList, BurgerMenu burgerMenu, Scanner scanner) {
         this.shoppingCartList = shoppingCartList;
         this.burgerMenu = burgerMenu;
+        this.scanner = scanner;
     }
 
     public void order() {
@@ -77,4 +77,3 @@ public class Order {
         }
     }
 }
-
